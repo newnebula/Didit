@@ -1,0 +1,31 @@
+@import "./colors-style.scss";
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(204, 62, 69);
+}
+
+
+@media(min-width: 500px){
+  body{
+    background-image: url(./pexels-scott-webb-1093126.jpg);
+    background-attachment: scroll;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+
+

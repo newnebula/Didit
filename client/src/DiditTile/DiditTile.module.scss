@@ -1,0 +1,107 @@
+@import "../colors-style.scss";
+
+.DiditTile{
+    display: flex;
+    flex-direction: column;
+    /* horizontally: */
+    justify-content: center;
+    /* vertically */
+    align-items: center;
+    width: 12rem;
+    margin: 2rem;
+    background-color: white ;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.DiditTileDone{
+    display: flex;
+    flex-direction: column;
+    /* horizontally: */
+    justify-content: center;
+    /* vertically */
+    align-items: center;
+    width: 12rem;
+    margin: 2rem;
+
+    // background-color: $inner-tile-done-bcg-c;
+    // color: $inner-tile-text-c;
+
+    background-color: yellow;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+}
+
+
+.DiditTileText{
+    /* margin: vert hor */
+    margin: 0rem;
+    padding: 0.5rem;
+    width: 95%;
+    text-align: center;
+    color: gray;
+    word-wrap: break-word;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    -o-hyphens:auto;
+    hyphens:auto;
+}
+
+.ButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    /* horizontally: */
+    justify-content: center;
+    /* vertically */
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0rem;
+}
+
+.DiditTileButton, .DiditTileButtonDelete{
+    background-color: yellow;
+    border-radius: 0.5rem;
+    color: $ok-button-bcg-text;
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    display: inline;
+    transition:all 0.5s ease;
+}
+
+.DiditTileButton:hover{
+    background-color: yellow;
+    cursor: pointer;
+    // border: black dotted;
+    -webkit-transform: rotateZ(-360deg); // scale(0.5);
+    -ms-transform: rotateZ(-360deg); // scale(0.5);
+    transform: rotateZ(-360deg); //scale(0.5);
+}
+
+.Disabled{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.DiditTileButtonDelete{
+    background-color: lightgray;
+}
+
+.DiditTileButtonDelete:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+
+.DiditTileButtonDone{
+    background-color: inherit;
+    color:gray;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.2rem;
+    padding: 0rem;
+}

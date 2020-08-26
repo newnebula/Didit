@@ -1,0 +1,21 @@
+@import "../colors-style.scss";
+
+.AllDiditsView{
+    width: 90%;
+    margin-top: 3rem;
+    background-color: $inner-all-bcg-c;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* horizontally: */
+    justify-content: space-around;
+    /* vertically */
+}
+
+
+.messageText{
+    margin-top: 3rem;
+    font-size: 2rem;
+}

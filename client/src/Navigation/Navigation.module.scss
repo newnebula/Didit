@@ -1,0 +1,109 @@
+@import "../colors-style.scss";
+.NavigationBar{
+    position: fixed;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    /* horizontally: */
+    justify-content: center;
+    /* vertically */
+    align-items: center;
+    background-color: white;
+    top: 0;
+}
+
+.SideButton{
+    background-color: white;
+    color: $nav-elem-c;
+    font-size: 1.5rem;
+    border-radius: 0.2rem;
+    padding: 2px;
+    margin: 5px;
+    position: fixed;
+    left:0;
+    top:0;
+    cursor: pointer;
+    border: black solid;
+}
+
+.Bar{
+    background-color: black;
+    height: 5px;
+    width: 20px;
+    margin: 3px;
+    border-radius: 1rem;;
+}
+
+.SideNavigation{
+    position:fixed;
+    width:280px;
+    max-width: 70%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index:200;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+}
+
+.Open{
+    transform: translateX(0);
+}
+.Close{
+    transform: translateX(-100%);
+}
+
+.NavigationItem{
+    /* margin: vert hor */
+    color: black;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    transition:all 0.5s ease;
+}
+
+.NavigationItem:hover{
+    cursor: pointer;
+    background-color: yellow;
+    color: black;
+    // -webkit-transform: rotateX(-360deg);
+    // -ms-transform: rotateX(-360deg);
+    // transform: rotateX(-360deg);
+}
+
+@media(min-width: 500px){
+    .SideNavigation{
+        display: none;
+    }
+    .SideButton{
+        display: none;
+    }
+}
+
+@media(max-width: 499px){
+    .NavigationBar{
+        display: none;
+    }
+    .NavigationItem{
+        padding: 1.5rem 1.5rem;
+        border-bottom: yellow solid;
+
+    }
+
+    .NavigationItem:hover{
+        cursor: pointer;
+        background-color: white;
+        border-bottom: black solid;
+    }
+}
+
+.NavigationItemDate{
+    color: navy;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 1rem;
+    margin-left: auto;
+}

@@ -1,0 +1,41 @@
+@import "../../colors-style.scss";
+
+.FormContainer{
+    // margin: 2rem;
+    // padding: 1rem;
+    // background-color: rgba(76, 0, 130, 0.685);
+    // border-radius: 2rem;
+    text-align: center;
+
+}
+
+.Input{
+    font-size: 1rem;
+    margin: 1rem;
+    width: 5rem;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    border-color: black;
+    border-width: 2px;
+}
+.Input:hover{
+background-color: yellow;
+cursor: pointer;
+}
+
+
+.GraphContainerAndForm{
+    width: 80%;
+    margin-top: 3rem;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* horizontally: */
+    justify-content: space-around;
+    /* vertically */
+}
+

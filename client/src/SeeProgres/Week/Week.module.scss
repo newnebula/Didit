@@ -1,0 +1,153 @@
+@import "../../colors-style.scss";
+
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.AllDiditsView{
+    width: 90%;
+    margin-top: 3rem;
+    background-color: $inner-all-bcg-c;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* horizontally: */
+    justify-content: space-around;
+    /* vertically */
+}
+
+
+.DoneDiditTile{
+    display: flex;
+    flex-direction: column;
+    /* horizontally: */
+    justify-content: center;
+    /* vertically */
+    align-items: center;
+    width: 12rem;
+    margin: 2rem;
+    background-color: black ;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+}
+
+
+
+.DoneDiditTile:hover{
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+
+
+
+.DoneDiditTile:nth-child(2n){
+    background-color: black;
+
+
+
+}
+.DoneDiditTile:nth-child(3n){
+    background-color: black;
+}
+.DoneDiditTile:nth-child(5n){
+    background-color: black;
+}
+
+.DoneDiditTileText{
+    margin: 0rem;
+    padding: 0.5rem;
+    width: 95%;
+    text-align: center;
+    color: white;
+    word-wrap: break-word;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    -o-hyphens:auto;
+    hyphens:auto;
+}
+.DoneDiditTileNumber{
+    margin: 1 1rem;
+    padding: 0.5 0.5rem;
+    font-size: 1.5rem;
+    color: yellow;
+
+}
+
