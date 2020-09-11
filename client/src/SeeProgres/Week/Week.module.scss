@@ -1,142 +1,67 @@
 @import "../../colors-style.scss";
 
-
-
-@-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
+.WeekMonthContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:90%;
 }
 
-
-
-
-
-
-
-
-
+.TextOnPage{
+    margin-top: 1rem;
+    color: white; //$text-on-page-color
+    font-size: 2rem;
+    text-align: center;
+}
 
 .AllDiditsView{
     width: 90%;
-    margin-top: 3rem;
-    background-color: $inner-all-bcg-c;
+    // margin: 1rem;
+    // padding: 1rem;
+    background-color: rgba(255, 255, 255, 0); //$best-didits-container-bcg
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     /* horizontally: */
-    justify-content: space-around;
+    justify-content: center;
     /* vertically */
+    align-content: center;
 }
-
 
 .DoneDiditTile{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* horizontally: */
     justify-content: center;
     /* vertically */
-    align-items: center;
-    width: 12rem;
+    align-content: center;
+    width: 15rem;
     margin: 2rem;
-    background-color: black ;
+    background-color: white; //$best-didits-tiles-bcg
     font-size: 1rem;
-    padding: 1rem 1rem;
+    padding: 0.6rem 0.6rem;
     border-radius: 0.5rem;
 }
 
-
-
-.DoneDiditTile:hover{
-    -webkit-animation: swing 1s ease;
-    animation: swing 1s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
+@media(max-width: 499px){
+    .DoneDiditTile{
+        width: 12 rem;
+    }
+    .AllDiditsView{
+        width: 95%
+    }
 }
 
-
-
-
-.DoneDiditTile:nth-child(2n){
-    background-color: black;
-
-
-
-}
-.DoneDiditTile:nth-child(3n){
-    background-color: black;
-}
-.DoneDiditTile:nth-child(5n){
-    background-color: black;
-}
 
 .DoneDiditTileText{
     margin: 0rem;
     padding: 0.5rem;
-    width: 95%;
-    text-align: center;
-    color: white;
+    width: 60%;
+    text-align: left;
+    color: darkslategray; //$best-didits-tile-text
+
     word-wrap: break-word;
     -moz-hyphens:auto;
     -webkit-hyphens:auto;
@@ -144,10 +69,10 @@
     hyphens:auto;
 }
 .DoneDiditTileNumber{
-    margin: 1 1rem;
+    margin: 0.5rem 1rem;
     padding: 0.5 0.5rem;
     font-size: 1.5rem;
-    color: yellow;
-
+    font-weight: bold;
+    color: rgb(241, 80, 88); //$best-didits-tile-number
 }
 

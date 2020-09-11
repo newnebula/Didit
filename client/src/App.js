@@ -3,6 +3,8 @@ import Welcome from './Welcome/Welcome';
 import AllDiditsView from './AllDiditsView/AllDiditsView';
 import AddADidit from './AddADidit/AddADidit';
 import Navigation from './Navigation/Navigation';
+import Footer from './Navigation/Footer';
+import TitleBar from './Navigation/TitleBar';
 import SideNav from './Navigation/SideNav';
 import SideButton from './Navigation/SideButton';
 import LoginSignup from './LoginSignup/LoginSignup';
@@ -36,6 +38,7 @@ class App extends Component {
   }
 
   setView = (chosenKey) =>{
+    console.log('setting veiw', chosenKey);
     let newPagesState={...this.state.pages};
 
     for (let [key] of Object.entries({...this.state.pages})) {
@@ -45,7 +48,7 @@ class App extends Component {
         newPagesState[key]= true;
       }
     }
-    // console.log('after setting was done with setview:',newPagesState)
+
     this.setState({pages: newPagesState});
     this.setState({viewSideNav:false})
   }
@@ -108,7 +111,9 @@ class App extends Component {
 
     return (
       <div className={CSS.App}>
+
         <Navigation
+        welc={()=>this.setView('viewWelcome')}
         all={()=>this.setView('viewAll')}
         add={()=>this.setView('viewAdd')}
         week={()=>this.setView('viewWeek')}
@@ -122,6 +127,7 @@ class App extends Component {
 
         <SideNav
                 showing={this.state.viewSideNav}
+                welc={()=>this.setView('viewWelcome')}
                 all={()=>this.setView('viewAll')}
                 add={()=>this.setView('viewAdd')}
                 week={()=>this.setView('viewWeek')}
@@ -131,6 +137,7 @@ class App extends Component {
                 loggedIn={this.state.loggedIn}
         />
         {view}
+        <Footer/>
       </div>
     )
   }

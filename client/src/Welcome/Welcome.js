@@ -13,7 +13,7 @@ const Welcome = (props) => {
            }})
        .then(res => {
            console.log('in welcome got answer from server');
-           props.switchLogin();
+           //props.switchLogin();
         if(res.data.token){
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('refrToken', res.data.refrToken);
@@ -24,26 +24,27 @@ const Welcome = (props) => {
        })
 
 
-
-
-
-
     return (
+        <div className={CSS.TwoColContainer}>
 
-        <div className={CSS.welcomeBcg}>
-            <p className={CSS.title}>Welcome to didit!</p>
+            <div className={CSS.SidePhotoRight}></div>
 
-            <p>Didit helps making new habbits.</p>
-            <p>Click on New and describe your new habbit with one sentence. From now on you can call it a "didit". ;-)</p>
-            <p>Every day you have a chance to set a "checked!" next to each of your didits and
-            analyze your weekly or monthly progress.</p>
-            <p>Seeing all the checked didits may boost your motivation, while working on these new habbits.</p>
+
+            <div className={CSS.WelcomeBcg}>
+                Welcome to Didit!
+                <div className={CSS.SpaceUnder}/>
+                Didit helps making new habits.
+                Click on "New" and describe your new habit in a few words. From now on you can call it a "didit". ;-)
+                <div className={CSS.SpaceUnder}/>
+                Daily visit "Today" and mark every successful didit. Seeing your 60-day progress may boost your motivation and that's what Didit is about.
+                <div className={CSS.SpaceUnder}/>
+                Go to "Recently" and have a glimpse of your weekly and monthly achievements.
+                If it works for you - enjoy the process of becoming that little bit better!
+            </div>
+
         </div>
-
-
     )
 }
-
 // Navigation.propTypes = {}
 
 export default Welcome

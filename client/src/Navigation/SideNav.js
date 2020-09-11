@@ -25,10 +25,11 @@ const SideNav = props => {
             <div className={CSS.SideNavigationContainer}>
             <div className={CSSnames.join(' ')}>
                 <div className={CSS.NavigationItemDate}> {date} </div>
+                <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
                 <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-                <div className={CSS.NavigationItem} onClick={props.all}> Didits </div>
-                <div className={CSS.NavigationItem} onClick={props.week}> Week </div>
-                <div className={CSS.NavigationItem} onClick={props.month}> Month </div>
+                <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
+                <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
+                {/* <div className={CSS.NavigationItem} onClick={props.month}> Month </div> */}
                 <div className={CSS.NavigationItem} onClick={props.logout}> Logout </div>
             </div>
         </div>
@@ -38,10 +39,11 @@ const SideNav = props => {
             <div className={CSS.SideNavigationContainer}>
             <div className={CSSnames.join(' ')}>
                 <div className={CSS.NavigationItemDate}> {date} </div>
+                <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
                 <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-                <div className={CSS.NavigationItem} onClick={props.all}> Didits </div>
-                <div className={CSS.NavigationItem} onClick={props.week}> Week </div>
-                <div className={CSS.NavigationItem} onClick={props.month}> Month </div>
+                <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
+                <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
+                {/* <div className={CSS.NavigationItem} onClick={props.month}> Month </div> */}
                 <div className={CSS.NavigationItem} onClick={props.loginSignup}> Login </div>
             </div>
         </div>

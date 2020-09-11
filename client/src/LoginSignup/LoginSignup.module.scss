@@ -4,31 +4,26 @@
     flex-direction: column;
     align-items: center;
     width: 60%;
-    background-color: $outer-tile-bcg-c;
-    margin-top: 6rem;
+    background-color: rgba(255, 255, 255, 0);
     padding: 2rem 0;
     border-radius: 0.5rem;
 }
 
 .SubmitButton{
     font-size: 1.5rem;
-    background-color: yellow;
+    background-color: $form-button-bcg;
     border-radius: 0.5rem;
-    color: $ok-button-bcg-text;
+    color: $form-button-text;
     width: 20%;
     text-align: center;
     margin-bottom: 1rem;
     padding: 0.5rem;
-    transition:all 0.2s ease;
+    // transition:all 0.2s ease;
 }
 
 .SubmitButton:hover{
-    background-color: white;
+    background-color: $form-button-bcg-hover;
     cursor: pointer;
-
-    -webkit-transform: rotateZ(-5deg); // scale(0.5);
-    -ms-transform: rotateZ(-5deg); // scale(0.5);
-    transform: rotateZ(-5deg); //scale(0.5);
 }
 
 @media(max-width: 499px){
@@ -49,8 +44,8 @@
     font-size: 1rem;
     margin: 1rem 0;
     padding: 0.5rem;
-    background-color:  white;
-    border: none;
+    background-color:  $input-bcg;
+    border: none; //$input-border-color $input-border-width $input-border-style
     font-family: inherit;
     border-radius: 0.5rem;
 }

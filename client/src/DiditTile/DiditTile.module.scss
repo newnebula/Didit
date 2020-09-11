@@ -1,6 +1,6 @@
 @import "../colors-style.scss";
 
-.DiditTile{
+.DiditTile, .DiditTileDone{
     display: flex;
     flex-direction: column;
     /* horizontally: */
@@ -8,32 +8,33 @@
     /* vertically */
     align-items: center;
     width: 12rem;
-    margin: 2rem;
-    background-color: white ;
+    margin-top:0;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: white ; //$didit-bcg
     font-size: 1rem;
     padding: 1rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: $didit-borderradius;
+    border-style: $didit-border-style;
+    border-color: $didit-border-color;
+    border-width: $didit-border-width;
 }
-
 .DiditTileDone{
-    display: flex;
-    flex-direction: column;
-    /* horizontally: */
-    justify-content: center;
-    /* vertically */
-    align-items: center;
-    width: 12rem;
-    margin: 2rem;
-
-    // background-color: $inner-tile-done-bcg-c;
-    // color: $inner-tile-text-c;
-
-    background-color: yellow;
-    font-size: 1rem;
-    padding: 1rem 1rem;
-    border-radius: 0.5rem;
+    border-color: $didit-border-done-color;
 }
 
+
+
+.DiditTileButtonDone{
+    background-color: $didit-button-done-bcg;
+    color: $didit-button-done-text;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.2rem;
+    padding: 0rem;
+}
 
 .DiditTileText{
     /* margin: vert hor */
@@ -41,7 +42,7 @@
     padding: 0.5rem;
     width: 95%;
     text-align: center;
-    color: gray;
+    color: $didit-text-color;
     word-wrap: break-word;
     -moz-hyphens:auto;
     -webkit-hyphens:auto;
@@ -50,35 +51,42 @@
 }
 
 .ButtonsContainer{
-    display: flex;
-    flex-direction: row;
-    /* horizontally: */
-    justify-content: center;
-    /* vertically */
-    align-items: center;
-    margin: 0.5rem;
+    width: 90%;
+    margin: 0rem;
     padding: 0rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
 }
 
-.DiditTileButton, .DiditTileButtonDelete{
-    background-color: yellow;
+.DiditTileButton, .DiditTileSeeButton, .DiditTileButtonDelete{
+    background-color: $didit-button-ok-bcg;
     border-radius: 0.5rem;
-    color: $ok-button-bcg-text;
+    color: $didit-button-ok-text;
     text-align: center;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin: 0.25rem;
     padding: 0.5rem;
-    display: inline;
-    transition:all 0.5s ease;
+
+    grid-column-start: span 2;
 }
 
-.DiditTileButton:hover{
-    background-color: yellow;
+.DiditTileButton:hover, .DiditTileSeeButton:hover{
+    background-color: $didit-button-ok-bcg-hover;
     cursor: pointer;
-    // border: black dotted;
-    -webkit-transform: rotateZ(-360deg); // scale(0.5);
-    -ms-transform: rotateZ(-360deg); // scale(0.5);
-    transform: rotateZ(-360deg); //scale(0.5);
+}
+
+.DiditTileButtonDelete{
+    background-color: lightgray; //$didit-button-nok-bcg
+    grid-column-start: span 1;
+}
+
+.DiditTileButtonDelete:hover{
+    background-color: gray; //$didit-button-nok-bcg-hover
+    cursor: pointer;
+}
+
+.DiditTileSeeButton{
+    grid-column-start: span 1;
 }
 
 .Disabled{
@@ -86,22 +94,6 @@
     opacity: 0.4;
 }
 
-.DiditTileButtonDelete{
-    background-color: lightgray;
-}
-
-.DiditTileButtonDelete:hover{
-    background-color: gray;
-    cursor: pointer;
-}
 
 
-.DiditTileButtonDone{
-    background-color: inherit;
-    color:gray;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0.2rem;
-    padding: 0rem;
-}
+

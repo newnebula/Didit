@@ -1,12 +1,16 @@
 @import "../../colors-style.scss";
 
+.TextOnPage{
+    color: white; //$text-on-page-color
+    font-size: 2rem;
+}
+
 .FormContainer{
     // margin: 2rem;
     // padding: 1rem;
     // background-color: rgba(76, 0, 130, 0.685);
     // border-radius: 2rem;
     text-align: center;
-
 }
 
 .Input{
@@ -14,28 +18,22 @@
     margin: 1rem;
     width: 5rem;
     padding: 0.5rem;
-    background-color: white;
+    background-color: white; //$input-bcg;
     border-radius: 1rem;
     text-align: center;
-    border-color: black;
-    border-width: 2px;
+    border: none; //delete it
+    border-color: black; //$input-border-color;
+    border-width: 2px; //$input-border-width;
 }
+
 .Input:hover{
-background-color: yellow;
+background-color: rgb(253, 232, 180);
 cursor: pointer;
 }
 
-
 .GraphContainerAndForm{
     width: 80%;
-    margin-top: 3rem;
-
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    /* horizontally: */
-    justify-content: space-around;
-    /* vertically */
+    margin-top: 1rem;
+    margin-bottom: 5rem;
 }
 

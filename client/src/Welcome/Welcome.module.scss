@@ -1,20 +1,51 @@
 @import "../colors-style.scss";
-.welcomeBcg{
 
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    background-color: rgba(255, 255, 255, 0.582);
-    width: 70%;
+.SpaceUnder{
+    margin-top: 2rem;
+}
+
+.TwoColContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.SidePhotoRight{
+    width: 350px;
+    height: 350px;
+
+    background-image: url(../cameleon-small.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.WelcomeBcg{
+
+    // margin-top: 7rem;
+    // margin-bottom: 2rem;
+    background-color: rgba(29, 28, 28, 0);
+    width: 45%;
+    //height: 350px;
     border-radius: 1rem;;
-    color: black;
-    padding: 0.5rem;
+    color: $welc-col-text;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin: 1rem;
 }
 
-p{
-    margin-bottom: 0;
-    margin-top: 0.5rem;
-    padding: 1rem;
-    width: 80%;
-    font-size: 1rem;
-    color: inherit;
+@media(max-width: 499px){
+    .SidePhotoRight{
+        display:none;
+    }
+    .WelcomeBcg{
+        width: 80%
+    }
 }
+
+

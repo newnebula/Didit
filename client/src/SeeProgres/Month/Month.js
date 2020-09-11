@@ -50,7 +50,6 @@ class Month extends Component {
 
         return (
             <div className={CSS.GraphContainerAndForm}>
-               <p> Click on the date to pick a month:</p>
                 {viewMonthForm}
                 {viewGivenMonth}
             </div>

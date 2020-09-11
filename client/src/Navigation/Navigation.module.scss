@@ -6,16 +6,35 @@
     flex-direction: row;
     flex-wrap: wrap-reverse;
     /* horizontally: */
-    justify-content: center;
+    justify-content: space-evenly;
     /* vertically */
     align-items: center;
-    background-color: white;
+    background-color: $nav-bar-bcg;
     top: 0;
+    z-index: 50;
 }
 
+
+.TitleBar{
+    background-color: $nav-bar-bcg;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    /* horizontally: */
+    justify-content: space-evenly;
+    /* vertically */
+    align-items: center;
+}
+
+
 .SideButton{
-    background-color: white;
-    color: $nav-elem-c;
+    background-color: rgba(255, 255, 255, 0.294);
+    color: black;
     font-size: 1.5rem;
     border-radius: 0.2rem;
     padding: 2px;
@@ -24,11 +43,11 @@
     left:0;
     top:0;
     cursor: pointer;
-    border: black solid;
+    border: none;
 }
 
 .Bar{
-    background-color: black;
+    background-color: rgb(61, 61, 61);
     height: 5px;
     width: 20px;
     margin: 3px;
@@ -39,11 +58,11 @@
     position:fixed;
     width:280px;
     max-width: 70%;
-    height: 100%;
+    height: 1000%;
     left:0;
     top:0;
-    z-index:200;
-    background-color: white;
+    z-index:400;
+    background-color: $sidenav-bar-bcg;
     padding: 10px;
     box-sizing: border-box;
     transition: transform 0.3s ease-out;
@@ -58,20 +77,16 @@
 
 .NavigationItem{
     /* margin: vert hor */
-    color: black;
+    color: $nav-item-text-color;
+    font-weight: bold;
     font-size: 1.2rem;
     margin: 0;
     padding: 0.5rem 1.5rem;
-    transition:all 0.5s ease;
 }
 
 .NavigationItem:hover{
     cursor: pointer;
-    background-color: yellow;
-    color: black;
-    // -webkit-transform: rotateX(-360deg);
-    // -ms-transform: rotateX(-360deg);
-    // transform: rotateX(-360deg);
+    color: $nav-item-text-color-hover;
 }
 
 @media(min-width: 500px){
@@ -81,6 +96,9 @@
     .SideButton{
         display: none;
     }
+    .TitleBar{
+        display: none;
+    }
 }
 
 @media(max-width: 499px){
@@ -88,22 +106,43 @@
         display: none;
     }
     .NavigationItem{
+        color: white;
         padding: 1.5rem 1.5rem;
-        border-bottom: yellow solid;
-
+        border-bottom: gray dotted 1px
     }
-
     .NavigationItem:hover{
         cursor: pointer;
-        background-color: white;
-        border-bottom: black solid;
+        color: $nav-item-text-color-hover;
     }
 }
 
 .NavigationItemDate{
-    color: navy;
+    color: $nav-date-color;
     font-size: 1.2rem;
+    font-style: italic;
     margin: 0;
     padding: 1rem;
-    margin-left: auto;
+    // margin-left: auto;
 }
+
+.FooterContainer{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    /* horizontally: */
+    justify-content: space-evenly;
+    /* vertically */
+    align-items: center;
+    background-color: $nav-bar-bcg;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+.FooterItem{
+    font-size: 0.8rem;
+    color: white;
+    padding: 1 rem;
+    margin: 0.5rem;
+ }

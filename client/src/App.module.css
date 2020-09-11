@@ -1,15 +1,18 @@
 .App {
   display: flex;
   flex-direction: column;
-
+  margin-top: 7rem;
   /* horizontally: */
   justify-content: center;
   /* vertically */
   align-items: center;
-
   width: 100%;
+}
 
-
+@media (max-width: 499px) {
+  .App{
+    margin-top: 1rem;
+  }
 }
 
 .App-logo {

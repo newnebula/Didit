@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CSS from './Week.module.scss';
 import DoneDiditTile from './DoneDiditTile';
+import TwoMonthsModal from './TwoMonths/TwoMonthsModal.js';
+import Month from '../Month/Month.js'
+import SixtyDays from '../SixtyDays/SixtyDays.js'
 
 class Week extends Component {
     constructor(props){
@@ -34,18 +37,42 @@ class Week extends Component {
     }
 
     render() {
-        const didits = this.state.weekDiditsfromServer
-        let viewWeekTiles=null;
-        if(!(didits.length < 1)){
-            viewWeekTiles = didits.map(didit => <DoneDiditTile
+        const diditsGood = this.state.weekDiditsfromServer.slice(0,15);
+        const diditsBad = this.state.weekDiditsfromServer.slice(-3);
+
+        let viewGoodWeekTiles=null;
+        if(!(diditsGood.length < 1)){
+            viewGoodWeekTiles = diditsGood.map(didit => <DoneDiditTile
+                                  text={didit.text}
+                                  numberTimes={didit.numberTimes}
+                                  key={didit.id} />)
+        }
+
+        let viewBadWeekTiles=null;
+        if(!(diditsBad.length < 1)){
+            viewBadWeekTiles = diditsBad.map(didit => <DoneDiditTile
                                   text={didit.text}
                                   numberTimes={didit.numberTimes}
                                   key={didit.id} />)
         }
 
         return (
-            <div className={CSS.AllDiditsView}>
-                {viewWeekTiles}
+            <div className={CSS.WeekMonthContainer}>
+
+                <p className={CSS.TextOnPage}>
+                    Here's what you did most last week:
+                </p>
+
+                <div className={CSS.AllDiditsView}>
+                    {viewGoodWeekTiles}
+                </div>
+
+                <p className={CSS.TextOnPage}>
+                Here's how you did by month:
+                </p>
+
+                <Month goToLogin={this.props.goToLogin}/>
+
             </div>
         )
     }

@@ -3,6 +3,7 @@ const secrets = require('../config/secrets.js');
 const Token = require('../models/TokenSchemma');
 
 exports.isAuth = (req,res,next)=>{
+    console.log('in is auth')
     const token = req.get('Authorization').split(' ')[1];
     const refrToken = req.get('Authorization').split(' ')[2];
 

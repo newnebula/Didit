@@ -2,15 +2,12 @@
 
 .AllDiditsView{
     width: 90%;
-    margin-top: 3rem;
-    background-color: $inner-all-bcg-c;
-
-
+    background-color: rgba(255, 255, 255, 0); //$didits-container-bcg
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     /* horizontally: */
-    justify-content: space-around;
+    justify-content: center;
     /* vertically */
 }
 

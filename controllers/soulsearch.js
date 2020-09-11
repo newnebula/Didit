@@ -31,7 +31,7 @@ exports.weekData = (req, res, next)=>{
             }else{
                 if(dataItem.numberTimes==0){
 
-                    // console.log('in 0 , will continue')
+                    // console.log('in 0 , will continue without adding it.')
                     continue
                 }else{
                     if(dataItem.numberTimes <= dataLastWeek[0].numberTimes){
@@ -48,7 +48,7 @@ exports.weekData = (req, res, next)=>{
                                 // console.log('j',dataLastWeek[j]);
                                 // console.log('j+1',dataLastWeek[(Number(j)+1)]);
                                 if( dataItem.numberTimes>=dataLastWeek[j].numberTimes & dataItem.numberTimes<dataLastWeek[(Number(j)+1)].numberTimes){
-                                    dataLastWeek.splice(j, 0, dataItem)
+                                    dataLastWeek.splice((Number(j)+1), 0, dataItem)
                                     break
                                 }
                             }
@@ -79,6 +79,9 @@ exports.weekData = (req, res, next)=>{
     })
     .catch(err => console.log(err))
 }
+
+
+
 
 exports.monthData = (req, res, next)=>{
     console.log('In monthData')
@@ -124,3 +127,57 @@ exports.monthData = (req, res, next)=>{
     .catch(err => console.log(err))
 }
 
+
+
+
+
+
+exports.twoMonthData = (req, res, next)=>{
+
+    console.log('In two months', req.body._id)
+    const _id = req.body._id;
+    const newToken = req.body.newToken;
+    const newRefrToken  = req.body.newRefrToken;
+
+    let sixtyLastDates=[];
+    for (var i = 1; i < 61; i++){
+        let today = new Date();
+        // let dayAgo = today.getDate()-Number(i);
+        console.log('today', today)
+        // console.log('aDayAgo', dayAgo)
+        console.log('today to datestring', today.toDateString())
+        console.log('will it work', today.setDate(today.getDate()-Number(i)), today.toDateString())
+
+        sixtyLastDates.push(today.toDateString())
+    }
+
+    let resultToSend=[];
+
+    Didit.findById(_id)
+    .then(result =>{
+        console.log(result)
+        let lastEntriesUnform=result.days.slice(-60)
+        let lastEntries= lastEntriesUnform.map( e => e.toDateString())
+        for(i in sixtyLastDates){
+
+            resultToSend.unshift(lastEntries.includes(sixtyLastDates[i]))
+        }
+
+        console.log(sixtyLastDates)
+        console.log(lastEntries)
+    })
+    .then(result => {
+        if(newToken){
+            res.status(201).json({
+                data60Days: resultToSend,
+                token: newToken,
+                refrToken: newRefrToken
+            })
+        }else{
+            res.status(201).json({
+                data60Days: resultToSend
+            })
+        }
+    })
+    .catch(err => console.log(err))
+}

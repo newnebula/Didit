@@ -12,6 +12,7 @@ isAuth=isAuthFile.isAuth;
 // router.get('/all-soulsearches', soulsearchController.showAllSoulsearches);
 router.get('/last-week', isAuth, soulsearchController.weekData);
 router.post('/get-month', isAuth, soulsearchController.monthData);
+router.post('/last60days', isAuth, soulsearchController.twoMonthData);
 
 
 
