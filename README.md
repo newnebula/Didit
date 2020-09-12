@@ -1,7 +1,7 @@
 # Didit
 
 [![Dependencies](https://david-dm.org/newnebula/didit.svg)](https://david-dm.org/newnebula/didit)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=stormy-dusk-77243&style=flat)](https://https://stormy-dusk-77243.herokuapp.com/)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=stormy-dusk-77243&style=flat)](https://stormy-dusk-77243.herokuapp.com/)
 [![Maintenance](https://img.shields.io/maintenance/yes/2020)](https://img.shields.io/maintenance/yes/2020)
 
 ### Technology
