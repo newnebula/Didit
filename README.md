@@ -1,8 +1,12 @@
 # Didit
 
+[![Dependencies](https://david-dm.org/newnebula/didit.svg)](https://david-dm.org/newnebula/didit)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=stormy-dusk-77243&style=flat)](https://https://stormy-dusk-77243.herokuapp.com/)
+[![Maintenance](https://img.shields.io/maintenance/yes/2020)](https://img.shields.io/maintenance/yes/2020)
+
 ### Technology
 
-Didit is a full-stack MERN application:
+Didit is a MERN stack application:
 
 - MongoDB with Mongoose
 - Express
