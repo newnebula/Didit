@@ -5,6 +5,16 @@ import CSS from './SixtyDays.module.scss';
 const SixtyDays = props => {
 
     const daysArray=props.daysArray;
+    // console.log("daysArray",daysArray);
+
+    let doneDays=0;
+    for(let d in daysArray){
+        if(daysArray[d]){
+            doneDays=doneDays+1
+        }
+    }
+
+    // console.log('amount of days', n)
 
     let CSSnames=[];
 
@@ -16,7 +26,13 @@ const SixtyDays = props => {
 
 
     return (
+        <>
+
             <div onClick={props.onClick} className={CSS.TwoLayers}>
+                <div className={CSS.Text}>
+                Past 60 days you did it  {doneDays}  times.
+                </div>
+
                 <div className={CSS.BackgroundFotoContainer}></div>
                 <div className={CSS.GridOnTopContainer}>
                     { daysArray.map( day=>{
@@ -29,6 +45,7 @@ const SixtyDays = props => {
                 </div>
 
             </div>
+        </>
 
 
     )

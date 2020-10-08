@@ -1,2 +1,6 @@
 node_modules/
 keys_dev.js
+client/.vscode
+client/src/.vscode
+client/src/cameleon-small.xcf
+

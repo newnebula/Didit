@@ -42,6 +42,10 @@ const Welcome = (props) => {
                 If it works for you - enjoy the process of becoming that little bit better!
             </div>
 
+            <div className={CSS.UnderTwoColContainer}>
+                Log in with "test@test.com" and "test" in order to... test Didit. ;-)
+            </div>
+
         </div>
     )
 }

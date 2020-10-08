@@ -97,12 +97,12 @@ exports.login = (req,res,next) => {
         const token = jwt.sign({
             email: loadedUser.email,
             userId: loadedUser._id.toString()
-        }, TokenScr.tokenSecret, {expiresIn: "1200s"});
+        }, TokenScr.tokenSecret, {expiresIn: "12h"});
 
         const refreshToken = jwt.sign({
             email: loadedUser.email,
             userId: loadedUser._id.toString()
-        }, TokenScr.refrTokenSecret, {expiresIn: "300s"});
+        }, TokenScr.refrTokenSecret, {expiresIn: "12h"});
         return {_token: token, _refrToken: refreshToken };
     })
     .then( tokens =>{

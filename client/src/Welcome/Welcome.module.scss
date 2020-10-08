@@ -13,12 +13,23 @@
     width: 100%;
 }
 
+.UnderTwoColContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+    color: rgb(31, 31, 93);
+}
+
 
 .SidePhotoRight{
     width: 350px;
     height: 350px;
 
-    background-image: url(../cameleon-small.jpg);
+    background-image: url(../cameleon-small1.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 1rem;
