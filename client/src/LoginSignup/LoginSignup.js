@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CSS from './LoginSignup.module.scss'
 import axios from 'axios';
+import {connect} from 'react-redux';
+import { withRouter } from "react-router-dom";
 
 class LoginSignup extends Component {
         constructor(props){
@@ -11,6 +13,11 @@ class LoginSignup extends Component {
               errorMessage: null
           }
           this.handleEmailPasswordChange = this.handleEmailPasswordChange.bind(this);
+        }
+
+        componentDidMount(){
+            this.props.onLogout();
+            localStorage.clear();
         }
 
         handleEmailPasswordChange(event) {
@@ -28,13 +35,15 @@ class LoginSignup extends Component {
             email: this.state.email,
             password: this.state.password
           };
+
           axios
           .post('/login', data)
           .then(res => {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('refrToken', res.data.refrToken);
             localStorage.setItem('userId', res.data.userId);
-            this.props.logInSwitch();
+            this.props.onLogin();
+            this.props.history.push("/today");
           })
           .catch(err => {
             console.log(err)
@@ -58,8 +67,9 @@ class LoginSignup extends Component {
                 .then(res => {
                   localStorage.setItem('token', res.data.token);
                   localStorage.setItem('userId', res.data.userId);
-                  this.props.showAllDidits();
-                  this.props.logInSwitch();
+                  localStorage.setItem('refrToken', res.data.refrToken);
+                  this.props.onLogin();
+                  this.props.history.push("/today");
                   }
                 )
               }
@@ -70,7 +80,6 @@ class LoginSignup extends Component {
           };
 
         render() {
-          localStorage.clear();
           return (
             <form className={CSS.Form}>
                 <input
@@ -101,4 +110,17 @@ class LoginSignup extends Component {
         }
       }
 
-export default LoginSignup;
+      const mapsStateToProps = state => {
+        return{
+          areWeLoggedIn: state.loggedIn
+        }
+      }
+
+      const mapsDispatchToProps = dispatch => {
+        return{
+          onLogin: () => dispatch({type: 'LOGIN'}),
+          onLogout: () => dispatch({type: 'LOGOUT'})
+        }
+      }
+
+      export default withRouter(connect(mapsStateToProps, mapsDispatchToProps)(LoginSignup));

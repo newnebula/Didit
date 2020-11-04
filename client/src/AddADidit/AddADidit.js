@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CSS from './AddADidit.module.scss'
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 class AddADidit extends Component {
         constructor(props){
@@ -29,7 +30,6 @@ class AddADidit extends Component {
               console.log('not connected server doesnt see good tokens')
               console.log(err)
               console.log(err.response.data.message);
-              this.props.goToLogin();
          })
      }
         handleTextAreaChange(event) {
@@ -38,7 +38,6 @@ class AddADidit extends Component {
             const name = target.name;
             if(this.state.message){
               this.setState({message:""})
-
             }
             this.setState({
               [name]: value
@@ -83,4 +82,10 @@ class AddADidit extends Component {
         }
       }
 
-export default AddADidit;
+      const mapsStateToProps = state => {
+        return{
+          areWeLoggedIn: state.loggedIn
+        }
+      }
+
+export default connect(mapsStateToProps)(AddADidit);

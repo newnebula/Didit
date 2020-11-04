@@ -3,10 +3,50 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+
+const initialReduxState = {
+  loggedIn: false,
+  showingSideNav: false
+};
+
+const reducer = (state=initialReduxState, action) => {
+  if (action.type ==='LOGIN'){
+    return{
+      ...state,
+      loggedIn: true
+    }
+  }
+
+  if (action.type ==='LOGOUT'){
+    return{
+      ...state,
+      loggedIn: false
+    }
+  }
+  if (action.type ==='OPENSIDENAV'){
+    return{
+      ...state,
+      showingSideNav: true
+    }
+  }
+  if (action.type ==='CLOSESIDENAV'){
+    return{
+      ...state,
+      showingSideNav: false
+    }
+  }
+
+
+  return state
+}
+
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}><App /></Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

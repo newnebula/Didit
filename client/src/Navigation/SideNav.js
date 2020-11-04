@@ -1,6 +1,8 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import CSS from './Navigation.module.scss'
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const SideNav = props => {
 
@@ -12,49 +14,56 @@ const SideNav = props => {
 
     let CSSnames=[];
 
-    if(props.showing){
+    if(props.areWeShowingSideNav){
          CSSnames = [CSS.SideNavigation, CSS.Open];
     }else{
          CSSnames = [CSS.SideNavigation, CSS.Close];
     }
 
 
-    let navView;
-    if(props.loggedIn){
-        navView =(
-            <div className={CSS.SideNavigationContainer}>
-            <div className={CSSnames.join(' ')}>
-                <div className={CSS.NavigationItemDate}> {date} </div>
-                <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
-                <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-                <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
-                <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
-                {/* <div className={CSS.NavigationItem} onClick={props.month}> Month </div> */}
-                <div className={CSS.NavigationItem} onClick={props.logout}> Logout </div>
-            </div>
-        </div>
-        )
-    }else{
-        navView =(
-            <div className={CSS.SideNavigationContainer}>
-            <div className={CSSnames.join(' ')}>
-                <div className={CSS.NavigationItemDate}> {date} </div>
-                <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
-                <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-                <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
-                <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
-                {/* <div className={CSS.NavigationItem} onClick={props.month}> Month </div> */}
-                <div className={CSS.NavigationItem} onClick={props.loginSignup}> Login </div>
-            </div>
-        </div>
-        )
-    }
-
     return (
-        navView
+        <div className={CSS.SideNavigationContainer} onClick={props.onClose}>
+        <div className={CSSnames.join(' ')}>
+        <div className={CSS.NavigationItem}>
+            <Link className={CSS.NavigationItem} to="/"> Welcome </Link>
+        </div>
+        <div className={CSS.NavigationItem}>
+            <Link className={CSS.NavigationItem} to={"/new-didit"}> New </Link>
+        </div>
+        <div className={CSS.NavigationItem}>
+            <Link className={CSS.NavigationItem} to={"/today"}> Today </Link>
+        </div>
+        <div className={CSS.NavigationItem}>
+            <Link className={CSS.NavigationItem} to={"/recently"}> Recently  </Link>
+        </div>
+        <div className={CSS.NavigationItem}>
+            <Link className={CSS.NavigationItem} to={"/login"}>
+                {props.areWeLoggedIn ? "Log out" : "Log in"}</Link>
+        </div>
+        <div className={CSS.NavigationItemDate}>
+            {date}
+        </div>
+        </div>
+    </div>
     )
 }
 
-// Navigation.propTypes = {}
+const mapsStateToProps = state => {
+    return{
+      areWeLoggedIn: state.loggedIn,
+      areWeShowingSideNav: state.showingSideNav
+    }
+  }
 
-export default SideNav
+
+  const mapsDispatchToProps = dispatch => {
+    return{
+      onLogin: () => dispatch({type: 'LOGIN'}),
+      onLogout: () => dispatch({type: 'LOGOUT'}),
+
+      onOpen: () => dispatch({type: 'OPENSIDENAV'}),
+      onClose: () => dispatch({type:'CLOSESIDENAV'})
+    }
+  }
+
+export default connect(mapsStateToProps, mapsDispatchToProps)(SideNav)

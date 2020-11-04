@@ -1,6 +1,7 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
-import CSS from './Navigation.module.scss'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CSS from './Navigation.module.scss';
+import {connect} from 'react-redux';
 
 const Navigation = props => {
 
@@ -10,42 +11,35 @@ const Navigation = props => {
     var yyyy = today.getFullYear();
     const date = dd + '.' + mm + '.' + yyyy;
 
-
-
-    let navView;
-    if(props.loggedIn){
-        navView =(
-        <div className={CSS.NavigationBar}>
-            <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
-            <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-            <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
-            <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
-            {/* <div className={CSS.NavigationItem} onClick={props.month}> 60 Days </div> */}
-            {/* <div className={CSS.NavigationItem} onClick={props.logout}> Settings </div> */}
-            <div className={CSS.NavigationItem} onClick={props.loginSignup}> Logout </div>
-            <div className={CSS.NavigationItemDate}> {date} </div>
-        </div>
-        )
-    }else{
-        navView =(
-        <div className={CSS.NavigationBar}>
-             <div className={CSS.NavigationItem} onClick={props.welc}> Welcome </div>
-            <div className={CSS.NavigationItem} onClick={props.add}> New </div>
-            <div className={CSS.NavigationItem} onClick={props.all}> Today </div>
-            <div className={CSS.NavigationItem} onClick={props.week}> Recently </div>
-            {/* <div className={CSS.NavigationItem} onClick={props.month}> 60 Days </div> */}
-            {/* <div className={CSS.NavigationItem} onClick={props.loginSignup}> Settings </div> */}
-            <div className={CSS.NavigationItem} onClick={props.loginSignup}> Login </div>
-            <div className={CSS.NavigationItemDate}> {date} </div>
-        </div>
-        )
-    }
-
     return (
-        navView
+        <div className={CSS.NavigationBar}>
+            <div >
+                <Link className={CSS.NavigationItem} to="/"> Welcome </Link>
+            </div>
+            <div>
+                <Link className={CSS.NavigationItem} to={"/new-didit"}> New </Link>
+            </div>
+            <div>
+                <Link className={CSS.NavigationItem} to={"/today"}> Today </Link>
+            </div>
+            <div>
+                <Link className={CSS.NavigationItem} to={"/recently"}> Recently  </Link>
+            </div>
+            <div>
+                <Link className={CSS.NavigationItem} to={"/login"}>
+                    {props.areWeLoggedIn ? "Log out" : "Log in"}</Link>
+            </div>
+            <div className={CSS.NavigationItemDate}>
+                {date}
+            </div>
+        </div>
     )
 }
 
-// Navigation.propTypes = {}
+const mapsStateToProps = state => {
+    return{
+      areWeLoggedIn: state.loggedIn
+    }
+  }
 
-export default Navigation
+export default connect(mapsStateToProps)(Navigation);
